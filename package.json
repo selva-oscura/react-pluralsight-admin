@@ -2,6 +2,9 @@
   "name": "pluralsight-admin",
   "version": "1.0.0",
   "description": "Course Project for Cory House's React and Redux Pluralsight course",
+  "scripts": {
+    "start": "babel-node tools/srcServer.js"
+  },
   "author": "Carol  St. Louis",
   "license": "MIT",
   "dependencies": {
