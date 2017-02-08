@@ -22,6 +22,10 @@
     "mocha": true
   },
   "rules": {
+    "react/jsx-quotes": 0,
+    "no-empty-label":0,
+    "space-after-keywords": 0, 
+    "space-return-throw-case": 0,
     "quotes": 0,
     "no-console": 1,
     "no-debugger": 1,
