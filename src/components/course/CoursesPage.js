@@ -17,7 +17,6 @@ class CoursesPage extends React.Component {
 		this.setState({course: course});
 	}
 	onClickSave() {
-		// alert(`Saving ${this.state.course.title}`);
 		this.props.createCourse(this.state.course);
 	}
 	courseRow(course, index) {
@@ -62,11 +61,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
-
-
-// normally would have mapStateToProps and mapDispatchToProps both being passed to connect
-// mapDispatchToProps lets us specify what actions to expose to our component, 
-//  mapDispatchToProps is optional and if we omit it, connect automatically gets a dispatch property attached to it, injected by connect, as is done currently in the code above 
-// => allows us to fire off our actions
-
-// export default connect(mapStateToProps)(CoursesPage);
