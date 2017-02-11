@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
 	constructor(props, context) {
@@ -15,12 +17,14 @@ class CoursesPage extends React.Component {
 		this.setState({course: course});
 	}
 	onClickSave() {
-		alert(`Saving ${this.state.course.title}`);
+		// alert(`Saving ${this.state.course.title}`);
+		this.props.dispatch(courseActions.createCourse(this.state.course));
 	}
 	render() {
 		return (
 			<div>
 				<h1>Courses</h1>
+				<h2>Add Courses</h2>
 				<input 
 					type="text"
 					onChange={this.onTitleChange}
@@ -36,4 +40,21 @@ class CoursesPage extends React.Component {
 	}
 }
 
-export default CoursesPage;
+function mapStateToProps(state, ownProps) {
+	return {
+		courses: state.courses
+	};
+}
+
+export default connect(mapStateToProps)(CoursesPage);
+
+
+// normally would have mapStateToProps and mapDispatchToProps both being passed to connect
+// mapDispatchToProps lets us specify what actions to expose to our component, 
+//  mapDispatchToProps is optional and if we omit it, connect automatically gets a dispatch property attached to it, injected by connect, as is done currently in the code above 
+// => allows us to fire off our actions
+
+// function mapDispatchToProps(){
+
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
