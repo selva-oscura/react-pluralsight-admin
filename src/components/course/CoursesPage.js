@@ -18,7 +18,7 @@ class CoursesPage extends React.Component {
 	}
 	onClickSave() {
 		// alert(`Saving ${this.state.course.title}`);
-		this.props.dispatch(courseActions.createCourse(this.state.course));
+		this.props.createCourse(this.state.course);
 	}
 	courseRow(course, index) {
 		return <div key={index}>{course.title}</div>;
@@ -45,7 +45,7 @@ class CoursesPage extends React.Component {
 }
 
 CoursesPage.propTypes = {
-	dispatch: PropTypes.func.isRequired,
+	createCourse: PropTypes.func.isRequired,
 	courses: PropTypes.array.isRequired
 };
 
@@ -55,7 +55,13 @@ function mapStateToProps(state, ownProps) {
 	};
 }
 
-export default connect(mapStateToProps)(CoursesPage);
+function mapDispatchToProps(dispatch){
+	return {
+		createCourse: (course) => dispatch(courseActions.createCourse(course))
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
 
 
 // normally would have mapStateToProps and mapDispatchToProps both being passed to connect
@@ -63,7 +69,4 @@ export default connect(mapStateToProps)(CoursesPage);
 //  mapDispatchToProps is optional and if we omit it, connect automatically gets a dispatch property attached to it, injected by connect, as is done currently in the code above 
 // => allows us to fire off our actions
 
-// function mapDispatchToProps(){
-
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+// export default connect(mapStateToProps)(CoursesPage);
