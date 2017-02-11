@@ -8,7 +8,7 @@ import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-// to pass initials state, primed from a server, database, or localStore, we'd pass this data to configureStore;
+// to pass initial state, primed from a server, database, or localStore, we'd pass this data to configureStore;
 const store = configureStore();
 
 render(
