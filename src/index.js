@@ -6,12 +6,14 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';  // gives nice, clean urls; could use hashRouter, but a bit ugly looking
 import routes from './routes';
 import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 // to pass initial state, primed from a server, database, or localStore, we'd pass this data to configureStore;
 const store = configureStore();
 store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 render(
 	<Provider store={store}>
