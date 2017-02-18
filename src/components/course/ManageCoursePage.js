@@ -25,6 +25,7 @@ class ManageCoursePage extends React.Component {
 	saveCourse(e) {
 		e.preventDefault();
 		this.props.actions.saveCourse(this.state.course);
+		this.context.router.push('/courses');
 	}
 
 	render() {
@@ -44,9 +45,14 @@ class ManageCoursePage extends React.Component {
 }
 
 ManageCoursePage.propTypes = {
-	courses: PropTypes.object.isRequired,
+	course: PropTypes.object.isRequired,
 	authors: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired
+};
+
+// context - global variable and we should generally avoid global cariables, but they are sometimes useful for easy access to the data we need without having to write boiler-plate router code
+ManageCoursePage.contextTypes = {
+	router: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
