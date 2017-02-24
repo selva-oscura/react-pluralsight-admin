@@ -29,6 +29,13 @@ describe('Course Reducer', () => {
 
 		const newState = courseReducer(initialState, action);
 		expect(newState.length).toEqual(3);
+
+		const updatedCourse = newState.find(a => a.id === updatingCourse.id);
+		const untouchedCourse = newState.find(a => a.id === 'A');
+
+		expect(updatedCourse.title).toEqual('B2: Return of the B');
+		expect(untouchedCourse.title).toEqual('A');
+
 	});
 
 });
