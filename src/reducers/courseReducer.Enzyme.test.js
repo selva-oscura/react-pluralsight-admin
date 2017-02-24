@@ -12,6 +12,9 @@ describe('Course Reducer', () => {
 		const action = actions.createCourseSuccess(newCourse);
 		const newState = courseReducer(initialState, action);
 		expect(newState.length).toEqual(3);
+		expect(newState[0].title).toEqual('A');
+		expect(newState[1].title).toEqual('B');
+		expect(newState[2].title).toEqual('C');
 	});
 
 });
