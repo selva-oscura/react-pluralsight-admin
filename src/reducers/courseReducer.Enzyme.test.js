@@ -24,7 +24,8 @@ describe('Course Reducer', () => {
 			{id: 'C', title: 'C'},
 		];
 
-		const updatingCourse = {id: 'B', title: 'B2: Return of the B'};
+		const updatedTitle = 'B2: Return of the B';
+		const updatingCourse = {id: 'B', title: updatedTitle};
 		const action = actions.updateCourseSuccess(updatingCourse);
 
 		const newState = courseReducer(initialState, action);
@@ -33,7 +34,7 @@ describe('Course Reducer', () => {
 		const updatedCourse = newState.find(a => a.id === updatingCourse.id);
 		const untouchedCourse = newState.find(a => a.id === 'A');
 
-		expect(updatedCourse.title).toEqual('B2: Return of the B');
+		expect(updatedCourse.title).toEqual(updatedTitle);
 		expect(untouchedCourse.title).toEqual('A');
 
 	});
