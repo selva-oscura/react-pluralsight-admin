@@ -89,7 +89,7 @@ ManageCoursePage.propTypes = {
 
 // context - global variable and we should generally avoid global cariables, but they are sometimes useful for easy access to the data we need without having to write boiler-plate router code
 ManageCoursePage.contextTypes = {
-	router: PropTypes.object.isRequired
+	router: PropTypes.object
 };
 
 function getCourseById(courses, id) {
