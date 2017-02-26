@@ -63,4 +63,12 @@ describe('Async Actions', () => {
 	afterEach(() => {
 		nock.cleanAll();
 	});
+
+	// done in next line is a callback function to Mocha that is done when async work is complete (see lines 83-84 for example of where it is called)
+	it('should create BEGIN_AJAX_CALL and LOAD_COURSES_SUCCESS when loading courses', (done) => {
+			// example of how to call nock (not done here, due to this using a mock API rather than a real website for its data)
+			// nock('http://example.com')
+			// 	.get('/courses')
+			// 	.reply(200, {body: {course: [{id: 1, firstName: 'Cory', lastName: 'House'}] }});
+	});
 })
