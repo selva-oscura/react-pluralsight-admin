@@ -33,4 +33,33 @@ describe('Store', () => {
 	 	expect(actual2).toEqual(course2);
 	});
 
+	it('should handle updating courses', () => {
+		// arrange
+		const store = createStore(rootReducer, initialState);
+		const course1 = {
+			id: 'cc',
+			title: 'Clean Code'
+		};
+		const course2 = {
+			id: 'rl',
+			title: 'React for Luddites'
+		};
+		const updateFor2 = {
+			id: 'rl',
+			title: 'React for Logicians'
+		}
+
+		// act
+		const courses = [course1, course2];
+		courses.forEach((course) => {
+			const action = courseActions.createCourseSuccess(course);
+			store.dispatch(action);
+		});
+		const action = courseActions.updateCourseSuccess(updateFor2);
+		store.dispatch(action);
+
+		// assert
+		const actual2update = store.getState().courses[1];
+		expect(actual2update).toEqual(updateFor2);
+	});
 });
