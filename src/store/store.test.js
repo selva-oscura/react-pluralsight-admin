@@ -50,16 +50,23 @@ describe('Store', () => {
 		}
 
 		// act
+		// create two
 		const courses = [course1, course2];
 		courses.forEach((course) => {
 			const action = courseActions.createCourseSuccess(course);
 			store.dispatch(action);
 		});
+		// update one
 		const action = courseActions.updateCourseSuccess(updateFor2);
 		store.dispatch(action);
 
-		// assert
+		const actuals = store.getState().courses;
 		const actual2update = store.getState().courses[1];
+
+		// assert
+		// still have two courses
+		expect(actuals.length).toEqual(courses.length);
+		// name of second course matches the updated value
 		expect(actual2update).toEqual(updateFor2);
 	});
 });
