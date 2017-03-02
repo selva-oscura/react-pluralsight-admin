@@ -1,3 +1,4 @@
+/*eslint-disable import/default */
 import 'babel-polyfill'; // needed to polyfill ES6 that babel can't transpile -- rather big (50k), so should actually only import the bits of it that are needed, but quick and dirty for the tutorial
 import React from 'react';
 import { render } from 'react-dom';
