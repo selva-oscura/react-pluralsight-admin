@@ -29,8 +29,8 @@ describe('Store', () => {
 
 		// assert
 		expect(actuals.length).toEqual(courses.length);
-	 	expect(actual1).toEqual(course1);
-	 	expect(actual2).toEqual(course2);
+		expect(actual1).toEqual(course1);
+		expect(actual2).toEqual(course2);
 	});
 
 	it('should handle updating courses', () => {
@@ -47,7 +47,7 @@ describe('Store', () => {
 		const updateFor2 = {
 			id: 'rl',
 			title: 'React for Logicians'
-		}
+		};
 
 		// act
 		// create two

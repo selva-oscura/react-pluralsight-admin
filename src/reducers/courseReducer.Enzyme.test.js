@@ -24,7 +24,7 @@ describe('Course Reducer', () => {
 			const initialState = [
 				{id: 'A', title: 'A'},
 				{id: 'B', title: 'B'},
-				{id: 'C', title: 'C'},
+				{id: 'C', title: 'C'}
 			];
 
 			const updatedTitle = 'B2: Return of the B';
